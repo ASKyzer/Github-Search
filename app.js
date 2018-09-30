@@ -4,7 +4,7 @@ const github = new Github()
 const ui = new UI()
 
 // Search input
-const searchUser = document.getElementById('search-user');
+const searchUser = document.getElementById('search-user')
 
 // Search input event listener
 searchUser.addEventListener('keyup', (e) => {
@@ -20,16 +20,16 @@ searchUser.addEventListener('keyup', (e) => {
             // Show alert
             ui.showAlert('User not found', 'alert alert-danger')
             // Clear profile
-            ui.clearProfile();
+            ui.clearProfile()
           } else {
             // Show profile
-            ui.showProfile(data.profile);
+            ui.showProfile(data.profile)
             // Show repos
             ui.showRepos(data.repos)
           }
-        }).catch(err => console.log(err)); 
+        }).catch(err => console.log(err))
   } else {
     // Clear profile
-    ui.clearProfile();
+    ui.clearProfile()
   }
 })

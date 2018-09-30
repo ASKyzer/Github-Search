@@ -1,7 +1,7 @@
 class Github {
   constructor() {
-    this.client_id = '1c79fed750e8cd0c0f1f'
-    this.client_secret = 'd584cd2b28755d70ffc29198b70edaefbc0c604f'
+    this.client_id = ''
+    this.client_secret = ''
     this.repos_count = 5
     this.repos_sort = 'created: asc'
   }
@@ -15,7 +15,7 @@ class Github {
     const profile = await profileResponse.json()
     const repos = await reposResponse.json()
 
-    // Return the profile
+    // Return the profile and repos
     return {
       profile,
       repos

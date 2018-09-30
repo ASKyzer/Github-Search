@@ -1,24 +1,27 @@
 class UI {
   constructor() {
-    this.profile = document.getElementById('profile');
+    this.profile = document.getElementById('profile')
   }
 
     // Show Profile
     showProfile(user) {
-      let company = user.company;
-      let location = user.locaton;
-      
-      if (company === null || location === null) {
-        company = "Company not available";
-        location = "Location not available";
+      let company = user.company
+      let location = user.locaton
+      let name = user.name
+
+      if (company === null || location === null || name === null) {
+        company = "Company not available"
+        location = "Location not available"
+        name = ''
       }
 
       this.profile.innerHTML = `
         <div class="card card-body mb-4 p-4">
           <div class="row">
             <div class="col-md-3 avatar-col">
-              <h3>${user.login}</h3>
               <img class="img-fluid img mb-1" src="${user.avatar_url}" alt="Profile Avatar">
+              <h3>${user.login}</h3>
+              <h6>${name}</h6>
               <a href="${user.html_url}" class="btn btn-primary btn-block" target="blank">View Profile</a>
             </div>
             <div class="col-md-9 info-col">
@@ -43,7 +46,7 @@ class UI {
 
   // Show Repositories
   showRepos(repos) {
-    let output = '';
+    let output = ''
 
     repos.forEach((repo) => {
       output += `
@@ -59,52 +62,52 @@ class UI {
             </div>
           </div>
        </div>
-      `;
+      `
     })
 
     // Show in UI
-    const reposContainer = document.getElementById('repos');
+    const reposContainer = document.getElementById('repos')
 
-    reposContainer.innerHTML = output;
+    reposContainer.innerHTML = output
   }
 
 
   // Clear Profile in UI
   clearProfile() {
-    this.profile.innerHTML = "";
+    this.profile.innerHTML = ""
   }
 
   // Show Alert Message
   showAlert(message, className) {
     // Clear alert first 
-    this.clearAlert();
+    this.clearAlert()
     // Create div
-    const div = document.createElement('div');
+    const div = document.createElement('div')
     // Add classes to div
     div.className = className;
     // Add text
-    div.appendChild(document.createTextNode(message));
+    div.appendChild(document.createTextNode(message))
     // Insert
     // Get parent 
-    const container = document.querySelector('.search-container');
+    const container = document.querySelector('.search-container')
     // Get sibling to insert before
-    const search = document.querySelector('.search');
+    const search = document.querySelector('.search')
     // Insert alert to UI
-    container.insertBefore(div, search);
+    container.insertBefore(div, search)
 
     // Timeout after 2 seconds
     setTimeout(() => {
-      this.clearAlert();
+      this.clearAlert()
     }, 2000);
   }
 
   // Clear Alert Message
   clearAlert() {
     // Get alert class
-    const currentAlert = document.querySelector('.alert');
+    const currentAlert = document.querySelector('.alert')
     if(currentAlert) {
       // remove it
-      currentAlert.remove();
+      currentAlert.remove()
     }
   }
 
