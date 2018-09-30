@@ -19,3 +19,14 @@ img {
 .title {
   color: #EB6864;
 }
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.badges span {
+  margin-bottom: 10px;
+  width: 49%;
+}

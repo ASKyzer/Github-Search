@@ -8,6 +8,7 @@ class UI {
       let company = user.company
       let location = user.locaton
       let name = user.name
+      let date = parseInt(user.created_at, 10)
 
       if (company === null || location === null || name === null) {
         company = "Company not available"
@@ -22,19 +23,21 @@ class UI {
               <img class="img-fluid img mb-1" src="${user.avatar_url}" alt="Profile Avatar">
               <h3>${user.login}</h3>
               <h6>${name}</h6>
-              <a href="${user.html_url}" class="btn btn-primary btn-block" target="blank">View Profile</a>
+              <a href="${user.html_url}" class="btn btn-primary btn-block mb-2" target="blank">View Profile</a>
             </div>
             <div class="col-md-9 info-col">
-              <span class="badge badge-primary badge-block">Public Repos: ${user.public_repos}</span>
-              <span class="badge badge-info badge-block">Public Gists: ${user.public_gists}</span>
-              <span class="badge badge-success badge-block">Followers: ${user.followers}</span>
-              <span class="badge badge-warning badge-block">Following: ${user.following}</span>
+              <div class="badges">
+                <span class="badge badge-primary badge-block">Public Repos: ${user.public_repos}</span>
+                <span class="badge badge-info badge-block">Public Gists: ${user.public_gists}</span>
+                <span class="badge badge-success badge-block">Followers: ${user.followers}</span>
+                <span class="badge badge-warning badge-block">Following: ${user.following}</span>
+              </div>
               <br><br>
               <ul class="list-group">
                 <li class="list-group-item">Company: ${company}</li>
                 <li class="list-group-item">Website/Blog: <a href="${user.blog}" target="_blank">Go to user's Website or Blog</a></li>
                 <li class="list-group-item">Locaton: ${location}</li>
-                <li class="list-group-item">Member Since: ${user.created_at}</li>
+                <li class="list-group-item">Member Since: ${date}</li>
               </ul>
             </div>
           </div>
