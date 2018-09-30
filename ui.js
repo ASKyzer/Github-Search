@@ -5,31 +5,39 @@ class UI {
 
     // Show Profile
     showProfile(user) {
+      let company = user.company;
+      let location = user.locaton;
+      
+      if (company === null || location === null) {
+        company = "Company not available";
+        location = "Location not available";
+      }
+
       this.profile.innerHTML = `
-        <div class="card card-body mb-4">
-        <div class="row">
-          <div class="col-md-3 avatar-col">
-            <h3>${user.login}</h3>
-            <img class="img-fluid img mb-1" src="${user.avatar_url}" alt="Profile Avatar">
-            <a href="${user.html_url}" class="btn btn-primary btn-block" target="blank">View Profile</a>
-          </div>
-          <div class="col-md-9 info-col">
-            <span class="badge badge-primary badge-block">Public Repos: ${user.public_repos}</span>
-            <span class="badge badge-info badge-block">Public Gists: ${user.public_gists}</span>
-            <span class="badge badge-success badge-block">Followers: ${user.followers}</span>
-            <span class="badge badge-warning badge-block">Following: ${user.following}</span>
-            <br><br>
-            <ul class="list-group">
-              <li class="list-group-item">Company: ${user.company}</li>
-              <li class="list-group-item">Website/Blog: <a href="${user.blog}" target="_blank">Go to user's Website or Blog</a></li>
-              <li class="list-group-item">Locaton: ${user.location}</li>
-              <li class="list-group-item">Member Since: ${user.created_at}</li>
-            </ul>
+        <div class="card card-body mb-4 p-4">
+          <div class="row">
+            <div class="col-md-3 avatar-col">
+              <h3>${user.login}</h3>
+              <img class="img-fluid img mb-1" src="${user.avatar_url}" alt="Profile Avatar">
+              <a href="${user.html_url}" class="btn btn-primary btn-block" target="blank">View Profile</a>
+            </div>
+            <div class="col-md-9 info-col">
+              <span class="badge badge-primary badge-block">Public Repos: ${user.public_repos}</span>
+              <span class="badge badge-info badge-block">Public Gists: ${user.public_gists}</span>
+              <span class="badge badge-success badge-block">Followers: ${user.followers}</span>
+              <span class="badge badge-warning badge-block">Following: ${user.following}</span>
+              <br><br>
+              <ul class="list-group">
+                <li class="list-group-item">Company: ${company}</li>
+                <li class="list-group-item">Website/Blog: <a href="${user.blog}" target="_blank">Go to user's Website or Blog</a></li>
+                <li class="list-group-item">Locaton: ${location}</li>
+                <li class="list-group-item">Member Since: ${user.created_at}</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <h2>Latest Repositories</h2>
-      <div id="repos"></div>
+        <h3 class="title">Latest Repositories</h3>
+        <div id="repos"></div>
       `;
     }
 
@@ -46,7 +54,7 @@ class UI {
             </div>
             <div class="col-md-6">
               <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
-              <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+              <span class="badge badge-success">Watchers: ${repo.watchers_count}</span>
               <span class="badge badge-info">Forks: ${repo.forks_count}</span>
             </div>
           </div>

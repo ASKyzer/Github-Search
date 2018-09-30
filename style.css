@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  font-size: 28px;
+}
+
+.search-container {
+  border: 1px solid #ccc;
+}
+
+img {
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.title {
+  color: #EB6864;
+}
